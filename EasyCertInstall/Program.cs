@@ -28,7 +28,7 @@ namespace EasyCertInstall
                     store.Open(OpenFlags.ReadWrite);
                     store.Add(cert);
                 }
-                Console.WriteLine($"{cert.FriendlyName} has successfully been added to the certifcate store.");
+                Console.WriteLine($"{certFileName} has successfully been added to the certifcate store.");
                 Console.WriteLine("You can now easily install the app by double clicking the .appx/.appxbundle file");
             }
 
