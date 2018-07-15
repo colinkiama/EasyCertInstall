@@ -27,7 +27,7 @@ C:\>EasyCertInsall.exe C:\AppPkg
 
 ```
 
-## For heavy command line users:
+### For heavy command line users:
 You can follow this tutorial to add the folder where this progam is contained to the Path environment variable: https://helpdeskgeek.com/windows-10/add-windows-path-environment-variable/
 
 After you do this, you'll be able to simply use "easycertinstall" from anywhere in the command line!
