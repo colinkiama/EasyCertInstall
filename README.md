@@ -10,16 +10,23 @@ Start "EasyCertInstall.exe" in the directory where the certificate or signed app
 The app will try to install a certificate file (.cer), that is in the directory. If none exist, it will look for a signed .appxbundle file then signed .appx file before giving up.
 
 ### 2. Using a command line program (e.g Command Prompt):
-You can run the app with a path to a directory of file as a parameter.
+You can run the app with a path to a directory or file as a parameter.
 For example:
 ```
 C:\>EasyCertInsall.exe [path]
+```
+Usage Examples: 
 
-// An actual path example: 
+```
+//Program will install the "MyAppCert" certificate
 C:\>EasyCertInsall.exe C:\Certs\MyAppCert.cer
 
-//Program will install the "MyAppCert" certificate
+// MyApp.appxbundle is locaetd in the "C:\AppPkg". There is no certificate file (.cer) there.
+// This will install the certificate from "MyApp.appxbundle"
+C:\>EasyCertInsall.exe C:\AppPkg
+
 ```
+
 
 ## Roadmap:
 - [x] Installing certificates from certificate files
