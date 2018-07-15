@@ -33,6 +33,10 @@ namespace EasyCertInstall
                 {
                     InstallCertFromDirectory(args[0]);
                 }
+                else
+                {
+                    Console.WriteLine("Invalid parameters were entered. Please enter a path to a certificate file \".cer\" app package file \".appx\" or \".appxbundle\" or a directory");
+                }
             }
             
             else
