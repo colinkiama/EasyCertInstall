@@ -14,5 +14,5 @@ For example, in the directory where an UWP package is located with it's cert and
 
 ## Roadmap:
 - [x] Installing certificates from certificate files
-- [ ] Installing certificates from the signed package
-- [ ] Installing certificates from from path passed in as an argument.
+- [x] Installing certificates from the signed package
+- [x] Installing certificates from from path passed in as an argument.
