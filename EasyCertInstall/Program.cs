@@ -156,7 +156,7 @@ namespace EasyCertInstall
 
         private static Tuple<bool, string> FindFilesFromDirectory(string currentDirectory, string searchPattern)
         {
-            string fileName = "null";
+            string fileName = "";
             bool isFileFound = false;
 
             var files = Directory.GetFiles(currentDirectory, searchPattern);
