@@ -38,17 +38,17 @@ namespace EasyCertInstall
                     Console.WriteLine("Invalid parameters were entered. Please enter a path to a certificate file \".cer\" app package file \".appx\" or \".appxbundle\" or a directory");
                 }
             }
-            
+
             else
             {
                 string currentDirectory = Directory.GetCurrentDirectory();
                 InstallCertFromDirectory(currentDirectory);
             }
-            
-            
 
-            
-           
+
+
+
+
             Console.ReadLine();
         }
 
@@ -73,7 +73,7 @@ namespace EasyCertInstall
 
             else
             {
-                InstallCertFromSignedPackage();
+                InstallCertFromSignedPackageFromDirectory();
             }
 
 
@@ -111,50 +111,62 @@ namespace EasyCertInstall
             Console.WriteLine($"Current file path: {filePath}");
         }
 
-        private static void InstallCertFromSignedPackage()
+        private static void InstallCertFromSignedPackageFromDirectory()
         {
             string currentDirectory = Directory.GetCurrentDirectory();
-            var files = Directory.GetFiles(currentDirectory, "*.appxbundle");
+            string signedPackagePath = TryFindSignedPackagePath(currentDirectory);
 
 
-            if (files.Length > 0)
+            if (signedPackagePath != "null")
             {
-                string signedPackagePath = files.First();
-                X509Certificate certFromSignedPkg = X509Certificate.CreateFromSignedFile(signedPackagePath);
-                X509Certificate2 cert = new X509Certificate2(certFromSignedPkg);
-                using (X509Store store = new X509Store(StoreName.TrustedPeople, StoreLocation.LocalMachine))
-                {
-                    store.Open(OpenFlags.ReadWrite);
-                    store.Add(cert);
-                }
-                Console.WriteLine($"Certificate for signed package: {signedPackagePath} has successfully been added to the certifcate store.");
-                Console.WriteLine("You can now easily install the app by double clicking the .appx/.appxbundle file");
+                InstallCertFromSignedPackage(signedPackagePath);
             }
 
             else
             {
-                files = Directory.GetFiles(currentDirectory, "*.appx");
-                if (files.Length > 0)
-                {
-                    string signedPackagePath = files.First();
-                    X509Certificate certFromSignedPkg = X509Certificate.CreateFromSignedFile(signedPackagePath);
-                    X509Certificate2 cert = new X509Certificate2(certFromSignedPkg);
-                    using (X509Store store = new X509Store(StoreName.TrustedPeople, StoreLocation.LocalMachine))
-                    {
-                        store.Open(OpenFlags.ReadWrite);
-                        store.Add(cert);
-                    }
-                    Console.WriteLine($"Certificate for signed package: {signedPackagePath} has successfully been added to the certifcate store.");
-                    Console.WriteLine("You can now easily install the app by double clicking the .appx/.appxbundle file");
-                }
-                else
-                {
+                Console.WriteLine("Certificate file or signed package is not available in the current directory.");
+                Console.WriteLine("Please launch this program in the directory where the certifcate file or appx  you want to install is located");
+            }
+        }
 
-                    Console.WriteLine("Certificate file or signed package is not available in the current directory.");
-                    Console.WriteLine("Please launch this program in the directory where the certifcate file or appx  you want to install is located");
-                }
+
+
+        private static string TryFindSignedPackagePath(string currentDirectory)
+        {
+            string packagePath = "null";
+
+            Tuple<bool, string> fileQueryResult = FindFilesFromDirectory(currentDirectory, "*.appxbundle");
+            if (fileQueryResult.Item1 == true)
+            {
+                packagePath = fileQueryResult.Item2;
             }
 
+            else
+            {
+                fileQueryResult = FindFilesFromDirectory(currentDirectory, "*.appx");
+                if (fileQueryResult.Item1 == true)
+                {
+                    packagePath = fileQueryResult.Item2;
+                }
+
+            }
+
+            return packagePath;
+        }
+
+        private static Tuple<bool, string> FindFilesFromDirectory(string currentDirectory, string searchPattern)
+        {
+            string fileName = "null";
+            bool isFileFound = false;
+
+            var files = Directory.GetFiles(currentDirectory, searchPattern);
+            if (files.Length > 0)
+            {
+                isFileFound = true;
+                fileName = files[0];
+            }
+
+            return Tuple.Create(isFileFound, fileName);
         }
     }
 }
