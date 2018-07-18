@@ -5,11 +5,8 @@ A C# console program that makes it easy to install certificates for sideloaded U
 You can get the program from here [EasyCertInstall Releases](https://github.com/colinkiama/EasyCertInstall/releases)
 
 ## How to use the program:
-### 1. Using Windows Explorer
-Start "EasyCertInstall.exe" in the directory where app package you want to install is.
-The program will try to install a certificate first. Either a cerificate file that is in the directory. If none exist, it will look for a .appxbundle file then .appx file before giving up.
-
-Then, it tries to install the app package (.appx/.appxbundle) while trying to install dependencies located in dependencies folders
+### 1. Using Windows Explorer:
+Start "EasyCertInstall.exe" in the directory where the certificate or signed app package with the certificate you want to install is. The app will try to install a certificate file (.cer), that is in the directory. If none exist, it will look for a signed .appxbundle file then signed .appx file before giving up.
 
 ### 2. Using a command line program (e.g Command Prompt):
 You can run the app with a path to a directory or file as a parameter.
