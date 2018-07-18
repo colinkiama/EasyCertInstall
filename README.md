@@ -1,12 +1,12 @@
 # EasyCertInstall
-C# console app that enables simple, easy, seamless installation of sideloaded UWP apps 
+A C# console program that makes it easy to install certificates for sideloaded UWP apps.
 
 ## Where to get the program:
 You can get the program from here [EasyCertInstall Releases](https://github.com/colinkiama/EasyCertInstall/releases)
 
 ## How to use the program:
 ### 1. Using Windows Explorer
-Start "EasyAppInstall.exe" in the directory where app package you want to install is.
+Start "EasyCertInstall.exe" in the directory where app package you want to install is.
 The program will try to install a certificate first. Either a cerificate file that is in the directory. If none exist, it will look for a .appxbundle file then .appx file before giving up.
 
 Then, it tries to install the app package (.appx/.appxbundle) while trying to install dependencies located in dependencies folders
