@@ -2,7 +2,7 @@
 A C# console program that makes it easy to install certificates for sideloaded UWP apps.
 
 ## Where to get the program:
-You can get the program from here [EasyCertInstall Releases](https://github.com/colinkiama/EasyCertInstall/releases)
+You can get the program from here: [EasyCertInstall Releases](https://github.com/colinkiama/EasyCertInstall/releases)
 
 ## How to use the program:
 ### 1. Using Windows Explorer:
