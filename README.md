@@ -20,7 +20,7 @@ Usage Examples:
 //Program will install the "MyAppCert" certificate
 C:\>EasyCertInsall.exe C:\Certs\MyAppCert.cer
 
-// MyApp.appxbundle is locaetd in the "C:\AppPkg". There is no certificate file (.cer) there.
+// MyApp.appxbundle is located in the "C:\AppPkg". There is no certificate file (.cer) there.
 // This will install the certificate from "MyApp.appxbundle"
 C:\>EasyCertInsall.exe C:\AppPkg
 
