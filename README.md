@@ -6,7 +6,7 @@ You can get the program from here: [EasyCertInstall Releases](https://github.com
 
 ## How to use the program:
 ### 1. Using Windows Explorer:
-Start "EasyCertInstall.exe" in the directory where the certificate or signed app package with the certificate you want to install is. The app will try to install a certificate file (.cer), that is in the directory. If none exist, it will look for a signed .appxbundle file then signed .appx file before giving up.
+Start "EasyCertInstall.exe" in the directory where the certificate or signed app package with the certificate you want to install is located. The app will try to install a certificate file (.cer), that is located in the currently opened folder. If no certificate files are in the current folder, it will look for a signed .appxbundle file then as a last resort, it will look for a signed .appx file before giving up.
 
 ### 2. Using a command line program (e.g Command Prompt):
 You can run the app with a path to a directory or file as a parameter.
